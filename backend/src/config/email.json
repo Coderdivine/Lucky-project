@@ -1,0 +1,97 @@
+{
+  "signUp": {
+    "template_name": "Sign Up Confirmation",
+    "header": "Sign Up Confirmation",
+    "content": "Dear User, \n\nThank you for signing up on Dabinx, where we bring you the best in all shopping categoires."
+  },
+  "signIn": {
+    "template_name": "Sign In Notification",
+    "header": "Sign In Notification",
+    "content": "Hello User, \n\nwelcome you back to Dabinx, your gateway to the latest store solutions. You have successfully signed in to our platform. Explore, discover, and make the most of what Dabinx has to offer!"
+  },
+  "orderPurchase": {
+    "template_name": "OrderStatement",
+    "header": "Order Purchase Confirmation",
+    "content": "Dear Customer, \n\nThank you for shopping with Dabinx! Your recent order purchase has been processed. We're thrilled to provide you with the latest and greatest in shopping exprience. Your order details are as follows:"
+  },
+  "order": {
+    "template_name": "OrderStatement",
+    "header": "Order Statement",
+    "content": "Dear Customer, \n\nWe appreciate your recent order at Dabinx. Below are the details of your recent order:"
+  },
+  "payment": {
+    "template_name": "PaymentStatement",
+    "header": "Payment/Purchase Statement",
+    "content": "Dear Customer, \n\nThank you for making a purchase at Dabinx. Your support helps us continue providing solutions. Here are the payment and purchase details for your recent transaction:"
+  },
+  "orderUpdate": {
+    "template_name": "Order Update Statement",
+    "header": "Order Update Statement",
+    "content": "Dear Customer, \n\nWe want to keep you informed about your order at Dabinx. Below are the updated details for your order:"
+  },
+  "productRemoved": {
+    "template_name": "OrderStatement",
+    "header": "Product Removed from Order Statement",
+    "content": "Dear Customer, \n\nWe wanted to confirm that the following product has been successfully removed from your order at Dabinx due to limited quanitiy:"
+  },
+  "failedPayment": {
+    "template_name": "Failed Payment Statement",
+    "header": "Failed Payment Statement",
+    "content": "Dear Customer, \n\nWe regret to inform you that the payment for your recent order at Dabinx was unsuccessful. Please review the payment details and try again."
+  },
+  "orderTracking": {
+    "template_name": "Order Tracking Statement",
+    "header": "Order Tracking Statement",
+    "content": "Dear Customer, \n\nYour order at Dabinx is on its way!. Here's the tracking information for your order:"
+  },
+  "orderStatusUpdate": {
+    "template_name": "OrderUpdateStatement",
+    "header": "Order Status Update Statement",
+    "content": "Dear Customer, \n\nWe want to keep you informed about the status of your order at Dabinx."
+  },
+  "contactSupplier": {
+    "template_name": "Contact Supplier Statement",
+    "header": "Contact Supplier Statement",
+    "content": "Dear Customer, \n\nYou've requested to contact the supplier for a product at Dabinx. We're here to assist you. Please find the supplier's contact information below:"
+  },
+  "refundEmail": {
+    "template_name": "Refund Email Statement",
+    "header": "Refund Email Statement",
+    "content": "Dear Customer, \n\nWe're processing a refund for your recent order at Dabinx. Here are the details of the refund process:"
+  },
+  "orderAlertNotification": {
+    "template_name": "OrderStatement",
+    "header": "Order Alert Notification (Admin) Statement",
+    "content": "Dear Admin, \n\nAn order has been placed at Dabinx. Here are the order details for your reference:"
+  },
+  "productReviewAlert": {
+    "template_name": "Product Review Alert Statement",
+    "header": "Product Review Alert Statement",
+    "content": "Dear Customer, \n\nThank you for shopping at Dabinx! We invite you to review the products you've purchased. Your feedback helps us improve our services."
+  },
+  "subscriptionAlert": {
+    "template_name": "PaymentStatement",
+    "header": "Subscription Alert (Admin) Statement",
+    "content": "Dear Admin, \n\nThanks for subscribing to Dabinx. Here are the subscription details for your reference:"
+  },
+  "withdrawPayment": {
+    "template_name": "PaymentStatement",
+    "header": "Withdrawal Processed (Admin) Notification",
+    "content": "Dear Admin,\n\nWe have successfully received your withdrawal request. Please be advised that the payment will be processed and you can expect to receive it within the next 24 hours."
+  },
+  "approveWithdrawal": {
+    "template_name": "PaymentStatement",
+    "header": "Withdrawal Approval (Admin) Notification",
+    "content": "Dear Admin,\n\nWe are pleased to inform you that your withdrawal request has been approved and processed successfully. Below are the transaction details:"
+  },
+  "holdWithdrawal": {
+    "template_name": "PaymentStatement",
+    "header": "Withdrawal on Hold (Admin) Notification",
+    "content": "Dear Admin,\n\nYour withdrawal request is currently on hold. Please contact Dabinx to facilitate the release of funds."
+  },
+  "adminPayment": {
+    "template_name": "adminPayment",
+    "header": "Payment processed already, SignUp almost completed",
+    "content": "Dear Admin,\n\nYour withdrawal request is currently on hold. Please contact Dabinx to facilitate the release of funds."
+  }
+}

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>{{header}}</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0;
+      background-color: #f5f5f5; } .container { max-width: 600px; margin: 0
+      auto; padding: 20px; background-color: white; border: 1px solid #ccc;
+      border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } .header {
+      background-color: #0056b3; color: white; padding: 20px; text-align:
+      center; border-top-left-radius: 10px; border-top-right-radius: 10px; }
+      .description { color: #555; padding: 20px 0; text-align: center; }
+      .content img { display: block; margin: 0 auto; max-width: 100%; height:
+      auto; } .footer { background-color: #0056b3; /* Blue color for the badge
+      */ color: white; padding: 10px; text-align: center; border-radius: 10px;
+      margin-top: 20px; /* Add some margin to separate from the content */ }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        {{header}}
+      </div>
+      <div class="description">
+        <p>Dear User,</p>
+        <p>{{content}}</p>
+      </div>
+      <div class="content">
+        {{#if image}}
+          <img src="{{image}}" alt="Email Image" />
+        {{/if}}
+        <!-- Add content related to the email here -->
+      </div>
+      <div class="footer">
+        For any assistance, contact us at:
+        <br />
+        Email:
+        <span style="color:white;">{{emailContactEmail}}</span>
+        <br />Phone:
+        {{emailContactPhone}}
+        <br />Address:
+        {{emailContactAddress}}
+      </div>
+    </div>
+  </body>
+</html>

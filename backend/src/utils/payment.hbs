@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{header}}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #0056b3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .description {
+      color: #555;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .content p {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .content p:last-child {
+      border-bottom: none;
+    }
+    .footer {
+      background-color: #0056b3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      {{header}}
+    </div>
+    <div class="description">
+      <p>Dear Customer,</p>
+      <p>{{content}}</p>
+    </div>
+    <div class="content">
+      <p>Email: {{contact.email}}</p>
+      <p>Phone Number: {{contact.phone}}</p>
+      <p>Contact Supplier: {{contact.supplier}}</p>
+      <p>Total Amount: {{totalAmount}}</p>
+      <p>Tax: {{tax}}</p>
+      <p>Amount Paid: {{amountPaid}}</p>
+      <!-- Add additional content related to the purchase here -->
+    </div>
+     <div class="footer">
+        For any assistance, contact us at:
+        <br />
+        Email:
+        <span style="color:white;">{{emailContactEmail}}</span>
+        <br />Phone:
+        {{emailContactPhone}}
+        <br />Address:
+        {{emailContactAddress}}
+      </div>
+  </div>
+</body>
+</html>
