@@ -13,7 +13,7 @@ For a step-by-step guide, check out this tutorial: [Node.js Installation Tutoria
 Clone the project repository to your local machine using the following command:
 
 ```bash
-$ git clone <REPO-URL>
+$ git clone https://github.com/Coderdivine/Lucky-project.git
 ```
 
 If you encounter any issues with cloning, refer to this video tutorial: [Git Clone Troubleshooting](https://www.youtube.com/watch?v=q9wc7hUrW8U).
