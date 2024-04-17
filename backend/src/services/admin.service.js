@@ -247,8 +247,8 @@ class AdminService {
     return pools;
   }
 
-  async getPools(region) {
-    const poolsByAdmin = await Pool.find({ region }).sort({ date: -1 }).limit(50);
+  async getPools(state) {
+    const poolsByAdmin = await Pool.find({ state }).sort({ date: -1 }).limit(50);
     const pools = await Promise.all(
       poolsByAdmin
         .map(async (pool) => {

@@ -14,6 +14,8 @@ class UserService {
     const NIN = data?.nin;
     const user_id = uuid.v4();
     const user = await User.findOne({ nin: NIN });
+    const isEmail = await User.findOne({ email: data?.email });
+    if(isEmail) throw new CustomError("Email address already used.", 400);
     if(user) throw new CustomError("NIN already registered.", 400);
     if((user?.email) == data?.email) throw new CustomError("Email already registered", 400);
     const newUser = new User({ ...data, user_id });
