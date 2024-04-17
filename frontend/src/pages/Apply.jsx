@@ -4,7 +4,7 @@ import { AdminAuth } from "../services/admin.service";
 function Apply() {
   const [sensor, setSensor] = useState(null);
   const [state, setState] = useState(
-    sessionStorage.getItem("lucky-region") || null
+    "Enugu" || sessionStorage.getItem("lucky-region") || "Enugu"
   );
 
   useEffect(() => {
