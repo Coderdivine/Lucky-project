@@ -221,12 +221,13 @@ class AdminService {
     return pools;
   }
 
-  async createPool({ admin_id, title, description, state }) {
+  async createPool({ admin_id, title, description, state, region }) {
     const pool_id = uuid.v4();
     const newPool = new Pool({
       pool_id,
       admin_id,
       title,
+      region,
       description,
       state,
     });
@@ -246,8 +247,8 @@ class AdminService {
     return pools;
   }
 
-  async getPools(state) {
-    const poolsByAdmin = await Pool.find({ state }).sort({ date: -1 }).limit(50);
+  async getPools(region) {
+    const poolsByAdmin = await Pool.find({ region }).sort({ date: -1 }).limit(50);
     const pools = await Promise.all(
       poolsByAdmin
         .map(async (pool) => {

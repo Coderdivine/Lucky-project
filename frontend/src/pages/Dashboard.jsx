@@ -5,9 +5,27 @@ import { AdminAuth } from "../services/admin.service";
 function Dashboard() {
   const adminConfig = JSON.parse(sessionStorage.getItem("admin-details-lucky"));
   const [pools, setPools] = useState(null);
-  const [state, setState] = useState(
-    sessionStorage.getItem("lucky-region")
-  );
+  const REGIONS = [
+    "Enugu North",
+    "Enugu South",
+    "Enugu East",
+    "Enugu West",
+    "Aninri",
+    "Awgu",
+    "Ezeagu",
+    "Igbo Etiti",
+    "Igbo Eze North",
+    "Igbo Eze South",
+    "Isi Uzo",
+    "Nkanu East",
+    "Nkanu West",
+    "Nsukka",
+    "Oji River",
+    "Udenu",
+    "Udi",
+  ];
+  const [region, setRegion] = useState("");
+  const [state, setState] = useState("Enugu");
   const [title, setTitle] = useState("");
   const [txt, setTxt] = useState("Create");
   const [description, setDescription] = useState("");
@@ -27,7 +45,6 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-
     const fecthData = async () => {
       try {
         const response = await new AdminAuth().getAdminPools(admin_id);
@@ -49,17 +66,22 @@ function Dashboard() {
   const createPool = async (e) => {
     e.preventDefault();
     try {
-      const data = {
-        state,
-        title,
-        description,
-        admin_id,
-      };
+      if (region.length > 2) {
+        const data = {
+          state,
+          region,
+          title,
+          description,
+          admin_id,
+        };
 
-      const response = await new AdminAuth().createPool(data);
-      if (response) {
-        alert("Pool created.");
-        window.location.reload();
+        const response = await new AdminAuth().createPool(data);
+        if (response) {
+          alert("Pool created.");
+          window.location.reload();
+        }
+      } else {
+        alert("Please choose a region");
       }
     } catch (error) {
       let msg = error.message;
@@ -151,6 +173,15 @@ function Dashboard() {
                       class="block w-full py-3 mt-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
 
+                    <select
+                      class="block w-full py-3 mt-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      onChange={(e) => setRegion(e.target.value)}
+                    >
+                      {REGIONS?.map((r) => (
+                        <option>{r}</option>
+                      ))}
+                    </select>
+
                     <input
                       onChange={(e) => setState(e.target.value)}
                       placeholder="State"
@@ -175,7 +206,7 @@ function Dashboard() {
         </div>
       )}
 
-      { pools && <Pools pools={pools} /> }
+      {pools && <Pools pools={pools} />}
     </div>
   );
 }
