@@ -26,7 +26,7 @@ function Apply() {
     <div className="bg-black text-white h-auto">
       <div className="bg-black mt-8">
         <p className="font-bold m-4 text-center p-2">
-          Population sensor near you
+          Population census near you
         </p>
       </div>
       <div

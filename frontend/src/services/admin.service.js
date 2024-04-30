@@ -57,6 +57,16 @@ export class AdminAuth {
         }
     }
 
+    async printReport(pool_id) {
+        const { data } = await AxiosConnect.get(`/admin/print-report/${pool_id}`, { responseType: 'blob' });
+        if(data){
+            console.log({ Download: data });
+            return data;
+        } else {
+            return data;
+        }
+    }
+
     async createPool(data) {
         const { data: response } = await AxiosConnect.post(`/admin/create-pool/`, data);
         if(response){

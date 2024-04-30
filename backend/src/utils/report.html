@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin: 20px;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      .details {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      .details p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>
+        Census Report for
+        <span style="font-size: bold">{{details.region}}</span>
+      </h3>
+      <div class="details">
+        <p>Title: {{details.title}}</p>
+        <p>Description: {{details.description}}</p>
+        <p>Location: {{details.region}}, {{details.state}}</p>
+        <p>Status: {{details.status}}</p>
+        <p>Male: {{details.percentageOfMale}}%</p>
+        <p>Female: {{details.percentageOfFemale}}%</p>
+        <p>Youth: {{details.percentageOfYouth}}%</p>
+        <p>Total: {{details.total}}</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -6,7 +6,7 @@ import { AdminAuth } from "../services/admin.service";
 function Pool() {
   const { pool_id } = useParams();
   const [pool, setPool] = useState(null);
-  const [applicants, setApplicants] = useState("");
+  const [applicants, setApplicants] = useState(null);
   const [txt, setTxt] = useState("");
 
   const getPool = async (e) => {
@@ -48,9 +48,9 @@ function Pool() {
 
   return (
     <div className="bg-black h-auto">
-      <div>Population sensor in {pool?.state} </div>
+      <div>Population census in {pool?.state} </div>
 
-      { applicants && <Users applicants={applicants} /> }
+      { applicants && applicants.length ? <Users applicants={applicants} /> : <p className="text-center">No applicants yet</p> }
     </div>
   );
 }

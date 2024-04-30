@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import { AdminAuth } from "../services/admin.service";
+
 
 function Pools({ pools }) {
+
+  const [ txt, seTxt ] = useState("Print");
+  const [btnDisabled, setBtnDisabled ] = useState(false);
+
+  const printReport = async (e, pool_id) => {
+    e.preventDefault();
+    try {
+      setBtnDisabled(true);
+      seTxt("Printing...");
+      const data = await new AdminAuth().printReport(pool_id);
+      const blob = new Blob([data], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'report.pdf');
+      document.body.appendChild(link);
+      setBtnDisabled(false);
+      link.click();
+      window.URL.revokeObjectURL(url);
+      seTxt("Print");
+    } catch (error) {
+      seTxt("Print");
+      alert(error);
+      setBtnDisabled(false);
+    }
+  }
+
   return (
     <div className="h-auto m-2 p-4">
-      {pools ? (
+      { pools ? (
         <>
           {pools?.map((data, index) => (
             <div
@@ -45,6 +74,12 @@ function Pools({ pools }) {
                         >
                           View
                         </a>
+                    </span>
+                    <span 
+                    disabled={btnDisabled}
+                    onClick={(e) => printReport(e, data?.pool_id)}
+                    className="ml-4 font-bold cursor-pointer text-white hover:text-gray-200">
+                      { txt }
                     </span>
                   </div>
                 </div>

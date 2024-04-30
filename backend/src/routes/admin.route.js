@@ -24,6 +24,7 @@ router.post("/create-pool", AdminCtrl.createPool);
 router.get("/admin-pools/:admin_id", AdminCtrl.getAdminPools);
 router.post("/get-pools", AdminCtrl.getPools);
 router.get("/pool/:pool_id", AdminCtrl.getPool);
+router.get("/print-report/:pool_id", AdminCtrl.printReport);
 router.get("/registerer/:pool_id", AdminCtrl.poolRegisterer);
 
 

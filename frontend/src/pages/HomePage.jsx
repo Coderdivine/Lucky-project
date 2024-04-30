@@ -97,7 +97,7 @@ function HeroSection() {
             <div class="w-full px-4 lg:w-5/12">
               <div class="hero-content">
                 <h1 class="mb-3 mt-6 text-4xl font-bold leading-snug text-dark sm:text-[42px] lg:text-[40px] xl:text-[42px]">
-                Nigeria Population Sensor Project{" "}
+                Nigeria Population Census Project {" "}
                   <span className="font-bold text-indigo-600">Smart Data</span>.{" "}
                   <br />
                    for a Smarter Nigeria <br />
@@ -112,7 +112,7 @@ function HeroSection() {
 
               </div>
             </div>
-            <div class="hidden px-4 lg:block lg:w-1/12"></div>
+            <div class="hidden px-4 lg:flex lg:w-1/12"></div>
             <div class="w-full px-4 lg:w-6/12">
               <div class="lg:ml-auto lg:text-right">
                 <div class="relative z-10 inline-block pt-11 lg:pt-0">

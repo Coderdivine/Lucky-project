@@ -6,6 +6,7 @@ const CustomError = require("./../utils/custom-error");
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid");
 const randonNum = require("../utils/randonNum");
+const createPDF = require("../utils/createPDF");
 const {
   sendMail,
   sendForgotPasswordMail,
@@ -215,7 +216,7 @@ class AdminService {
     const admins = await Admin.find({});
     return admins;
   }
-
+  s;
   async allPools() {
     const pools = await Pool.find({});
     return pools;
@@ -235,26 +236,36 @@ class AdminService {
     return save;
   }
 
+  async printReport(pool_id) {
+    const pool = await Pool.findOne({ pool_id });
+    if (!pool) throw new CustomError("Census not found", 400);
+    const analysis = await this.analysis(pool);
+    const reportResult = await createPDF.createPDF({ ...pool, ...analysis });
+    return reportResult;
+  }
+
   async getAdminPools(admin_id) {
-    const poolsByAdmin = await Pool.find({ admin_id }).sort({ date: -1 }).limit(50);
+    const poolsByAdmin = await Pool.find({ admin_id })
+      .sort({ date: -1 })
+      .limit(50);
     const pools = await Promise.all(
-      poolsByAdmin
-        .map(async (pool) => {
-          const analysis = await this.analysis(pool);
-          return { ...pool, ...analysis };
-        })
+      poolsByAdmin.map(async (pool) => {
+        const analysis = await this.analysis(pool);
+        return { ...pool, ...analysis };
+      })
     );
     return pools;
   }
 
   async getPools(state) {
-    const poolsByAdmin = await Pool.find({ state }).sort({ date: -1 }).limit(50);
+    const poolsByAdmin = await Pool.find({ state })
+      .sort({ date: -1 })
+      .limit(50);
     const pools = await Promise.all(
-      poolsByAdmin
-        .map(async (pool) => {
-          const analysis = await this.analysis(pool);
-          return { ...pool, ...analysis };
-        })
+      poolsByAdmin.map(async (pool) => {
+        const analysis = await this.analysis(pool);
+        return { ...pool, ...analysis };
+      })
     );
     return pools;
   }
@@ -278,28 +289,16 @@ class AdminService {
       .length;
     const youths =
       (await registerer.filter((x) => x.age > 20 && x.age < 40)).length || 0;
-    console.log({
-      total,
-      male,
-      female,
-      youths,
-    });
-    const percentageOfMale = (male / total) * 100 || 0;
-    const percentageOfFemale = (female / total) * 100 || 0;
-    const percentageOfYouth = (youths / total) * 100 || 0;
 
-    console.log({
-      percentageOfMale,
-      percentageOfFemale,
-      percentageOfYouth,
-    });
-    
+    const percentageOfMale = Math.floor((male / total) * 100) || 0;
+    const percentageOfFemale = Math.floor((female / total) * 100) || 0;
+    const percentageOfYouth = Math.floor((youths / total) * 100) || 0;
     return {
       percentageOfMale,
       percentageOfFemale,
       percentageOfYouth,
-      total
-    }
+      total,
+    };
   }
 }
 

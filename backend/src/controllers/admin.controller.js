@@ -93,6 +93,11 @@ class AdminController {
         res.status(200).send(response("Pool sensor", result));
     }
 
+    async printReport(req, res) {
+        const file = await AdminService.printReport(req.params.pool_id);
+        res.download(file);
+    }
+
 }
 
 module.exports = new AdminController();
